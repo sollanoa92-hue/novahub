@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NovaHub – Free AI Assistants</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<aside id="side">
+  <div class="brand">✦ NovaHub</div>
+  <p class="sub">Free AI assistants. Pick a persona.</p>
+  <div id="personas"></div>
+</aside>
+<main>
+  <header>
+    <button id="menu" aria-label="Menu">☰</button>
+    <div><h1 id="title"></h1><span id="tag"></span></div>
+    <button id="clear">Clear chat</button>
+  </header>
+  <section id="log"></section>
+  <div class="composer">
+    <textarea id="input" rows="1" placeholder="Type your message…"></textarea>
+    <button id="send">Send</button>
+  </div>
+</main>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
