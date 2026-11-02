@@ -31,3 +31,15 @@ textarea{flex:1;resize:none;background:var(--card);color:var(--text);border:1px 
   aside{position:fixed;inset:0 auto 0 0;z-index:5;transform:translateX(-100%)}
   aside.open{transform:none}#menu{display:block}.msg{max-width:90%}
 }
+.bot{white-space:normal}
+.msg p{margin:6px 0}
+.msg h1,.msg h2,.msg h3,.msg h4{font-size:1.05rem;margin:14px 0 6px}
+.msg ul,.msg ol{margin:6px 0 6px 22px}
+.msg li{margin:3px 0}
+.msg blockquote{border-left:3px solid var(--a);padding-left:10px;color:var(--muted);margin:8px 0}
+.msg hr{border:0;border-top:1px solid #3a3e78;margin:12px 0}
+.msg code{background:#0a0b18;padding:1px 5px;border-radius:4px}
+.msg pre code{background:none;padding:0}
+.msg a{color:var(--b)}
+.msg table{border-collapse:collapse;margin:8px 0}
+.msg th,.msg td{border:1px solid #3a3e78;padding:4px 8px}
