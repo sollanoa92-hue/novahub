@@ -4,10 +4,9 @@ const key = () => "chat_" + current;
 
 const esc = s => s.replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
 function render(text){
-  return esc(text)
-    .replace(/```(?:\w+)?\n?([\s\S]*?)```/g, "<pre><code>$1</code></pre>")
-    .replace(/`([^`]+)`/g, "<code>$1</code>")
-    .replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
+  if (window.marked && window.DOMPurify)
+    return DOMPurify.sanitize(marked.parse(text, {breaks: true}));
+  return '<div style="white-space:pre-wrap">' + esc(text) + '</div>';
 }
 function add(role, text, cls=""){
   const d = document.createElement("div");
