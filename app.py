@@ -20,15 +20,15 @@ if os.getenv("AI2_BASE_URL"):
 DETAIL = " Give complete, well-structured, detailed answers."
 
 PERSONAS = {
-    "tutor":  {"name": "Study Tutor", "tagline": "Learns with you, step by step",
+    "tutor":  {"name": "Study Tutor", "icon": "🎓", "tagline": "Learns with you, step by step",
                "prompt": "You are a patient tutor. Explain clearly with examples, then ask one short check-question."},
-    "fixit":  {"name": "Fix-It Tech", "tagline": "Computer & phone troubleshooting",
+    "fixit":  {"name": "Fix-It Tech", "icon": "🛠️", "tagline": "Computer & phone troubleshooting",
                "prompt": "You are an IT support technician. Ask for symptoms if unclear, then give numbered, safe troubleshooting steps from easiest to hardest."},
-    "coder":  {"name": "Code Buddy", "tagline": "Debug and write code",
+    "coder":  {"name": "Code Buddy", "icon": "💻", "tagline": "Debug and write code",
                "prompt": "You are a senior developer. Give correct, clear code in fenced blocks and explain how it works."},
-    "writer": {"name": "Word Smith", "icon": "tagline": "Essays, emails, captions",
+    "writer": {"name": "Word Smith", "icon": "✍️", "tagline": "Essays, emails, captions",
                "prompt": "You are a skilled writing assistant. Improve clarity and tone, and provide a full revised version."},
-    "eli5":   {"name": "Explain Like I'm 5", "tagline": "Hard ideas made simple",
+    "eli5":   {"name": "Explain Like I'm 5", "icon": "🧸", "tagline": "Hard ideas made simple",
                "prompt": "Explain everything in very simple words with a fun everyday analogy and a small example."},
 }
 
