@@ -38,16 +38,26 @@ async function send(){
   } catch(e){ wait.classList.add("err"); wait.textContent = e.message; history.pop(); }
   $("send").disabled = false; $("log").scrollTop = 1e9; $("input").focus();
 }
+const started = Date.now();
+function hideLoader(){
+  const wait = Math.max(0, 1500 - (Date.now() - started));
+  setTimeout(() => $("loader").classList.add("hide"), wait);
+}
 (async () => {
-  personas = await (await fetch("/api/personas")).json();
-  if (!personas[current]) current = "tutor";
-  for (const [k,p] of Object.entries(personas)){
-    const b = document.createElement("button"); b.className = "persona"; b.dataset.k = k;
-    b.innerHTML = `<span class="ic">${p.icon}</span><span><b>${p.name}</b><small>${p.tagline}</small></span>`;
-    b.onclick = () => { current = k; localStorage.setItem("persona", k); load(); $("side").classList.remove("open"); };
-    $("personas").appendChild(b);
+  try {
+    personas = await (await fetch("/api/personas")).json();
+    if (!personas[current]) current = "tutor";
+    for (const [k,p] of Object.entries(personas)){
+      const b = document.createElement("button"); b.className = "persona"; b.dataset.k = k;
+      b.innerHTML = `<span class="ic">${p.icon}</span><span><b>${p.name}</b><small>${p.tagline}</small></span>`;
+      b.onclick = () => { current = k; localStorage.setItem("persona", k); load(); $("side").classList.remove("open"); };
+      $("personas").appendChild(b);
+    }
+    load();
+    hideLoader();
+  } catch(e){
+    $("loadtext").textContent = "Could not load. Please refresh the page.";
   }
-  load();
 })();
 $("send").onclick = send;
 $("input").addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey){ e.preventDefault(); send(); }});
