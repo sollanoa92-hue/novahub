@@ -43,3 +43,12 @@ textarea{flex:1;resize:none;background:var(--card);color:var(--text);border:1px 
 .msg a{color:var(--b)}
 .msg table{border-collapse:collapse;margin:8px 0}
 .msg th,.msg td{border:1px solid #3a3e78;padding:4px 8px}
+#loader{position:fixed;inset:0;z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:var(--bg);transition:opacity .5s,visibility .5s}
+#loader.hide{opacity:0;visibility:hidden}
+.ring{width:64px;height:64px;border-radius:50%;border:5px solid #2a2d5a;border-top-color:var(--a);border-right-color:var(--b);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#loader .logo{font-size:2rem;font-weight:800;background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+#loader p{color:var(--muted)}
+.bar{width:200px;height:6px;background:#2a2d5a;border-radius:6px;overflow:hidden}
+.bar span{display:block;height:100%;width:40%;background:linear-gradient(90deg,var(--a),var(--b));border-radius:6px;animation:slide 1.2s ease-in-out infinite}
+@keyframes slide{0%{margin-left:-40%}100%{margin-left:100%}}
